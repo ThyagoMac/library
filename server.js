@@ -1,27 +1,7 @@
-const http = require('http');
 
-const servidor = http.createServer(function (req, resp) {
+const app = require('./src/config/custom-express.js');
 
-    let html = '';
-    if (req.url == '/'){
-        html = `<html>
-                    <head>
-                        <meta charset="utf-8">
-                    </head>
-                    <body>
-                        <h1> Main </h1>
-                    </body> 
-                </html>`;
-    } else if (req.url == '/livros'){
-        html = `<html>
-                    <head>
-                        <meta charset="utf-8">
-                    </head>
-                    <body>
-                        <h1> Livros </h1>
-                    </body> 
-                </html>`;
-    }
-    resp.end(html);
+app.listen(app.port, function(){
+    console.log('Servidor rodando na porta ', app.port);
+    console.log('http://localhost:'+app.port+'/');
 });
-servidor.listen(3000);
