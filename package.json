@@ -5,11 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ThyagoMac/library.git"
+    "start": "nodemon server.js --ignore *.marko.js"
   },
   "author": "Thyago Mac",
   "license": "ISC",
@@ -19,9 +15,14 @@
   "homepage": "https://github.com/ThyagoMac/library#readme",
   "dependencies": {
     "express": "4.16.3",
-    "marko": "4.13.4-1"
+    "marko": "4.13.4-1",
+    "sqlite3": "5.0.0"
   },
   "devDependencies": {
     "nodemon": "1.18.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThyagoMac/library.git"
   }
 }
