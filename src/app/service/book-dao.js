@@ -18,6 +18,30 @@ class BookDao {
             )
         })
     }
+
+    add(book) {
+        return new Promise((resolve, reject) =>{
+            this._db.run(
+                `INSERT INTO livros (
+                    titulo,
+                    preco,
+                    descricao
+                ) values (?,?,?)`
+                , [
+                    book.titulo,
+                    book.preco,
+                    book.descricao
+                ],
+                function(err) {
+                    if(err){
+                        console.log(err);
+                        return reject('Não foi possivel adicionar o livro!');
+                    }
+                    resolve();
+                }
+            )
+        });
+    }
 }
 
 module.exports = BookDao;

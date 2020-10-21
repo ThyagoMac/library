@@ -23,16 +23,15 @@ module.exports = (app) => {
                 books: books
             }
         )).catch (error => console.log(error));
-        /* 
-        bookdao.getAll(function(error, res) {
-            resp.marko(
-                require('../views/books/list/show.marko'),
-                {
-                    books: res
-                }
-            );
-        }) */
         
     });
-
+    app.get('/livros/form', function(req, resp){
+        resp.marko(require('../views/books/form/form.marko'));
+    });
+    app.post('/livros', function(req, resp){
+        console.log(req.body);
+        const bookdao = new BookDao(db);
+        bookdao.add(req.body).then(resp.redirect('/livros'))
+        .catch (error => console.log(error));
+    });
 };
